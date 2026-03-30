@@ -97,10 +97,10 @@ public class Strom {
     public void vypisCestuKeKorenu(String nazevMise) {
         for (CastMise node : castiMise.keySet()) {
             if (node.nazev().equalsIgnoreCase(nazevMise)) {
-                List<CastMise> cesta = getPath(node);
+                List<CastMise> cesta = getPath(node).reversed();
                 for (CastMise child : cesta) {
                     System.out.print(child);
-                    if (!child.equals(rootNode)) {
+                    if (cesta.indexOf(child) != cesta.size() - 1) {
                         System.out.print(" -> ");
                     }
                 }
